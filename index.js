@@ -12,17 +12,17 @@ const port = 1810;
 app.use(express.json());
 
 
-const whitelist = ['http://127.0.0.1:5500', 'https://myapp.co'];
-const options = {
-  origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('no permitido'));
-    }
-  }
-}
-app.use(cors(options));
+// const whitelist = ['http://localhost:1810', 'https://myapp.com'];
+// const options = {
+//   origin: (origin, callback) => {
+//     if (whitelist.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('no permitido'));
+//     }
+//   }
+// }
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('<h1>Hola este es mi server en express</h1>');
