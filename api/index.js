@@ -8,11 +8,11 @@ const cors = require('cors');
 const app = express(); // : Aquí estás inicializando una instancia de la aplicación Express.
 // Esto crea una aplicación Express vacía que puedes configurar y expandir según tus necesidades.
 
-const port = 1810;
+const port = process.env.PORT || 3000;
 app.use(express.json());
 
 
-// const whitelist = ['http://localhost:1810', 'https://myapp.com'];
+// const whitelist = ['http://127.0.0.1:5500', 'https://myapp.com'];
 // const options = {
 //   origin: (origin, callback) => {
 //     if (whitelist.includes(origin)) {
@@ -24,7 +24,7 @@ app.use(express.json());
 // }
 app.use(cors());
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('<h1>Hola este es mi server en express</h1>');
 })
 
